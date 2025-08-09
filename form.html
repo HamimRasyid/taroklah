@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Pembayaran via WhatsApp</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #014848;
+        color: white;
+      }
+      .container {
+        max-width: 500px;
+        margin: auto;
+        background: #0d7377;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      h2 {
+        text-align: center;
+        color: white;
+        margin-bottom: 25px;
+      }
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="number"],
+      textarea,
+      select {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
+      }
+      textarea {
+        resize: vertical;
+        min-height: 80px;
+      }
+      button {
+        background-color: #25d366; /* WhatsApp green */
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+        width: 100%;
+        transition: background-color 0.3s ease;
+      }
+      button:hover {
+        background-color: #1da851;
+      }
+      .note {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: #014848;
+        border-left: 6px solid #2196f3;
+        font-size: 0.9em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="position-absolute m-4 top-0 end-0">
+        <a href="champions.html"
+          ><i
+            class="bi bi-x-square-fill"
+            style="font-size: 2rem; color: red"
+          ></i
+        ></a>
+      </div>
+      <h2>Formulir Pembayaran</h2>
+      <form id="paymentForm">
+        <label for="nama">Nama Lengkap:</label>
+        <input type="text" id="nama" name="nama" required />
+
+        <label for="email">Email (Opsional):</label>
+        <input type="email" id="email" name="email" />
+
+        <label for="produk">Nama Turnamen</label>
+        <input
+          type="text"
+          id="produk"
+          name="produk"
+          class="form-control"
+          type="text"
+          value="SMK N1 JEJAWI"
+          aria-label="Disabled input example"
+          disabled
+          readonly
+          required
+        />
+
+        <label for="jumlah">Jumlah/Kuantitas:</label>
+        <input
+          class="form-control"
+          type="text"
+          value="5 orang"
+          aria-label="Disabled input example"
+          disabled
+          readonly
+          id="jumlah"
+          name="jumlah"
+          required
+        />
+
+        <label for="total">Total Pembayaran (Rp):</label>
+        <input
+          class="form-control"
+          type="number"
+          value="50.000"
+          disabled
+          id="total"
+          name="total"
+        />
+
+        <label for="metode">Metode Pembayaran Pilihan:</label>
+        <select id="metode" name="metode" required>
+          <option value="">Pilih Metode</option>
+          <option value="cash">CASH</option>
+          <!-- <option value="Transfer Bank Mandiri">Transfer Bank Mandiri</option>
+          <option value="OVO">OVO</option>
+          <option value="GoPay">GoPay</option> -->
+          <option value="DANA">DANA</option>
+        </select>
+
+        <label for="catatan">Catatan Tambahan (Opsional):</label>
+        <textarea id="catatan" name="catatan"></textarea>
+
+        <button type="submit">Kirim Pesanan via WhatsApp</button>
+      </form>
+
+      <div class="note">
+        <p>
+          <strong>Penting:</strong> Setelah Anda menekan tombol "Kirim Pesanan
+          via WhatsApp", Anda akan diarahkan ke aplikasi WhatsApp dengan pesan
+          yang sudah terisi otomatis. Pastikan untuk mengirimkan pesan tersebut
+          kepada kami.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("paymentForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Mencegah form submit secara default
+
+          // Ambil nilai dari setiap field
+          const nama = document.getElementById("nama").value;
+          const email = document.getElementById("email").value;
+          const produk = document.getElementById("produk").value;
+          const jumlah = document.getElementById("jumlah").value;
+          const total = document.getElementById("total").value;
+          const metode = document.getElementById("metode").value;
+          const catatan = document.getElementById("catatan").value;
+
+          // Nomor WhatsApp Anda (ganti dengan nomor Anda, format internasional tanpa '+')
+          const phoneNumber = "6281273959192"; // Contoh: ganti dengan nomor WhatsApp Anda
+
+          // Buat pesan WhatsApp
+          let message = `*Konfirmasi Pembayaran Pesanan*\n\n`;
+          message += `Nama Lengkap: ${nama}\n`;
+          message += email ? `Email: ${email}\n` : "";
+          message += `Nama Turnamen: ${produk}\n`;
+          message += `Jumlah: ${jumlah}\n`;
+          message += `Total Pembayaran: Rp ${total}\n`;
+          // message += `Total Pembayaran: Rp ${new Intl.NumberFormat(
+          //   "id-ID"
+          // ).format(total)}\n`;
+          message += `Metode Pembayaran Pilihan: ${metode}\n`;
+          message += catatan ? `Catatan: ${catatan}\n\n` : "\n";
+          message += `Mohon segera diproses. Terima kasih!`;
+
+          // Encode pesan untuk URL
+          const encodedMessage = encodeURIComponent(message);
+
+          // Buat URL WhatsApp
+          const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+          // Buka WhatsApp
+          window.open(whatsappUrl, "_blank");
+
+          // Opsional: Reset form setelah pengiriman
+          // document.getElementById('paymentForm').reset();
+        });
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

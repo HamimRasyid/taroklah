@@ -1,0 +1,59 @@
+.jaoye {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  background: url("background.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #000;
+  text-align: center;
+}
+.container {
+  padding: 40px 20px;
+}
+.logo {
+  width: 100px;
+  margin: 0 auto 10px;
+}
+.title {
+  font-size: 32px;
+  font-weight: 700;
+}
+.social-icons {
+  margin: 10px;
+}
+.social-icons i {
+  margin: 0 10px;
+  font-size: 24px;
+  color: #000;
+}
+.roster-title {
+  margin-top: 30px;
+  font-size: 24px;
+  font-weight: 600;
+}
+.roster {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 40px;
+}
+.member {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 180px;
+}
+.member img {
+  width: 100%;
+  border-radius: 10px;
+}
+.member-name {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 18px;
+}
+.member-role {
+  color: #444;
+  font-size: 14px;
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Statistik Persentase Tim</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #1e1e1e;
+        color: white;
+        padding: 20px;
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      .bar-container {
+        width: 100%;
+        max-width: 600px;
+        margin: 20px auto;
+      }
+
+      .bar {
+        background-color: #333;
+        border-radius: 8px;
+        margin: 10px 0;
+        overflow: hidden;
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+      }
+
+      .bar-fill {
+        height: 30px;
+        line-height: 30px;
+        color: #fff;
+        padding-left: 10px;
+        font-weight: bold;
+        background-color: #f60;
+        transition: width 0.5s ease-in-out;
+      }
+
+      .label {
+        margin-top: 4px;
+        text-align: right;
+        font-size: 14px;
+        color: #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Statistik Kemenangan Tim</h2>
+    <div class="bar-container" id="stats"></div>
+
+    <script>
+      // Data kemenangan
+      const data = {
+        A: 4,
+        B: 2,
+        C: 3,
+        D: 1,
+      };
+
+      function renderStats(data) {
+        const total = Object.values(data).reduce((sum, val) => sum + val, 0);
+        const container = document.getElementById("stats");
+        container.innerHTML = "";
+
+        for (let team in data) {
+          const percent = ((data[team] / total) * 100).toFixed(1);
+          const bar = document.createElement("div");
+          bar.className = "bar";
+          bar.innerHTML = `<div class="bar-fill" style="width: ${percent}%">${team}: ${percent}%</div>`;
+          container.appendChild(bar);
+        }
+      }
+
+      renderStats(data);
+    </script>
+  </body>
+</html>

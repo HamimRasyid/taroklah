@@ -1,0 +1,231 @@
+:root {
+  --latar: #014848;
+  --isi: #0d7377;
+  --bayangan: #ffd700;
+  --garis: #55565b;
+  --abu: #b4b3b1;
+  --biru: #167bb3;
+}
+
+.korsel {
+  background-color: var(--latar);
+}
+
+.atas {
+  background-color: var(--latar);
+}
+.warna {
+  background-color: var(--latar);
+}
+
+.gambar {
+  height: 150px;
+  box-shadow: 0 0px 20px 1px var(--garis);
+}
+
+.bayangan {
+  box-shadow: 0 0px 20px 1px var(--garis);
+}
+
+/* style kartu */
+.kartu {
+  border: 1px dashed #aaa;
+  padding: 20px;
+  width: 340px;
+}
+
+.tanggal {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.match {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px dashed #ddd;
+  padding: 10px 0;
+}
+
+.match:first-child {
+  border-top: none;
+}
+
+.teams {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.team {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 40%;
+  justify-content: center;
+}
+
+.team img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.score {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.time {
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.label {
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.tombol {
+  display: flex;
+  gap: 6px;
+}
+
+.tombol button {
+  font-size: 12px;
+  padding: 2px 8px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.details-btn {
+  background-color: #b30000;
+  color: white;
+}
+
+.replay-btn {
+  background-color: #f5a623;
+  color: white;
+}
+
+.details-btn:hover,
+.replay-btn:hover {
+  opacity: 0.9;
+}
+
+/* belanja */
+.product-container {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.product-card {
+  background-color: white;
+  width: 200px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+  position: relative;
+}
+.product-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+.badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background-color: orange;
+  color: white;
+  padding: 2px 6px;
+  font-size: 12px;
+  border-radius: 4px;
+}
+.product-details {
+  padding: 10px;
+}
+.product-title {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 5px 0;
+}
+.product-price {
+  color: red;
+  font-size: 16px;
+  margin: 4px 0;
+}
+.product-rating {
+  font-size: 13px;
+  color: #777;
+}
+.label {
+  font-size: 11px;
+  color: green;
+  margin-top: 4px;
+}
+
+/* peserta */
+.jao {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+/* h1 {
+  font-size: 40px;
+  background-color: var(--latar);
+} */
+
+.team-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  background-color: var(--latar);
+}
+
+.team-card {
+  width: 90px;
+  background-color: #fff;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team-code {
+  background-color: #7b1113;
+  color: #fff;
+  padding: 6px 0;
+  width: 100%;
+  font-weight: bold;
+}
+
+.team-logo {
+  padding: 20px 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.team-logo img {
+  max-height: 60px;
+  max-width: 60px;
+  object-fit: contain;
+}
