@@ -124,7 +124,7 @@
 /* belanja */
 .product-container {
   display: flex;
-  gap: 16px;
+  gap: 7px;
   flex-wrap: wrap;
   justify-content: center;
 }
